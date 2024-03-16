@@ -44,6 +44,9 @@ ccbf 'path/to/brainfuck'
 
 And you're done! Have fun with Brainfuck!
 
+#### IMPORTANT:
+Make sure you put the [{fmt} library](https://github.com/fmtlib/fmt) in libs/fmt or else it cannot compile
+
 ---
 
 ## Extra

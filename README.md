@@ -32,7 +32,7 @@ cmake ..
 make
 ```
 
-Then, if you want to you can create a shortcut to it if you need to
+Then, if you want to you can create a shortcut
 ```sh
 export ccbf='path/to/exec'
 ```

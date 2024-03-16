@@ -38,3 +38,11 @@ export ccbf='path/to/exec'
 ```
 
 And you're done! Have fun with Brainfuck!
+
+---
+
+## Extra
+The interpreter isn't *quite* finished yet; there is still some stuff in the works such as:
+- REPL executable
+- Better onboarding
+- QOL improvements (compiler flags such as -h, -v, --repl, -f, ...)

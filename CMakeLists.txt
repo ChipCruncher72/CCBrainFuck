@@ -2,10 +2,6 @@ cmake_minimum_required(VERSION "3.28.3")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# INFO: ENABLE FOR RAYLIB GAME DEV
-#
-#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-subsystem,windows")
-
 project("ccbf")
 
 add_executable("ccbf" "src/main.cpp")

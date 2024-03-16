@@ -52,3 +52,4 @@ The interpreter isn't *quite* finished yet; there is still some stuff in the wor
 - Better onboarding
 - QOL improvements (compiler flags such as -h, -v, --repl, -f, ...)
 - Support for the .b extention
+- Transpiler

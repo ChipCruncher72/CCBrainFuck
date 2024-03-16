@@ -37,6 +37,11 @@ Then, if you want to you can create a shortcut to it if you need to
 export ccbf='path/to/exec'
 ```
 
+To run a brainfuck file you just need to include the path as an argument
+```sh
+ccbf 'path/to/brainfuck'
+```
+
 And you're done! Have fun with Brainfuck!
 
 ---
@@ -46,3 +51,4 @@ The interpreter isn't *quite* finished yet; there is still some stuff in the wor
 - REPL executable
 - Better onboarding
 - QOL improvements (compiler flags such as -h, -v, --repl, -f, ...)
+- Support for the .b extention

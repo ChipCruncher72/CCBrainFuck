@@ -2,6 +2,9 @@
 #include <array>
 #include <cstdlib>
 #include <cstdio>
+#define CCBF_MAJOR 0
+#define CCBF_MINOR 4
+#define CCBF_PATCH 0
 
 void FAIL(const char *msg) {
     fmt::println(stderr, "{}", msg);

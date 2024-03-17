@@ -3,9 +3,6 @@
 #include <iostream>
 #include <string>
 #include "proj_functions.cpp"
-#define CCBF_MAJOR 0
-#define CCBF_MINOR 4
-#define CCBF_PATCH 0
 
 int main() {
     fmt::println("Brainfuck REPL v{}.{}.{} by ChipCruncher72 (https://www.github.com/ChipCruncher72)\n",

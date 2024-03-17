@@ -4,9 +4,6 @@
 #include <fstream>
 #include <string>
 #include "proj_functions.cpp"
-#define CCBF_MAJOR 0
-#define CCBF_MINOR 4
-#define CCBF_PATCH 0
 
 
 int main(int argc, char *argv[]) {

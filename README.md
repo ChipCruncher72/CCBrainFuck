@@ -36,6 +36,11 @@ Then, if you want to you can create a shortcut
 ```sh
 export ccbf='path/to/exec'
 ```
+on Windows
+```ps1
+New-Alias -Name ccbf -Value 'path\to\exec'
+```
+
 
 To run a brainfuck file you just need to include the path as an argument
 ```sh

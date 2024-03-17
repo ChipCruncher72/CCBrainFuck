@@ -16,11 +16,11 @@ int main(int argc, char *argv[]) {
     if (!std::filesystem::is_regular_file(argv[1]))
         FAIL("Invalid file provided");
 
-    if (std::filesystem::path(argv[1]).extension() != ".bf") {
+    if (std::filesystem::path(argv[1]).extension() != ".bf" && std::filesystem::path(argv[1]).extension() != ".b") {
 #if CCBF_MAJOR == 0 && CCBF_MINOR < 5
-        WARN("File does not end in .bf\nThe code can still run, but this behaviour will be deprecated as of v0.5.0");
+        WARN("File does not end in .bf or .b\nThe code can still run, but this behaviour will be deprecated as of v0.5.0");
 #else
-        FAIL("File does not end in .bf");
+        FAIL("File does not end in .bf or .b");
 #endif
     }
 

@@ -2,6 +2,7 @@
 #include <array>
 #include <cstdlib>
 #include <cstdio>
+#include <string>
 #define CCBF_MAJOR 0
 #define CCBF_MINOR 4
 #define CCBF_PATCH 0

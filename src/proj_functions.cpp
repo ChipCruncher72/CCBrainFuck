@@ -5,6 +5,7 @@
 #define CCBF_MAJOR 0
 #define CCBF_MINOR 4
 #define CCBF_PATCH 0
+#define CCBF_LAMBDA(...) [=](__VA_ARGS__)
 
 void FAIL(const char *msg) {
     fmt::println(stderr, "{}", msg);

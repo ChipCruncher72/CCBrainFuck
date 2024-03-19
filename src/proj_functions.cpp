@@ -7,15 +7,8 @@
 #define CCBF_MINOR 5
 #define CCBF_PATCH 0
 #define CCBF_LAMBDA(...) [=](__VA_ARGS__)
-
-void FAIL(const char *msg) {
-    fmt::println(stderr, "{}", msg);
-    std::exit(1);
-}
-
-void WARN(const char *msg) {
-    fmt::println(stderr, "WARNING: {}", msg);
-}
+#define FAIL(...) { fmt::println(stderr, __VA_ARGS__); std::exit(1); }
+#define WARN(...) { fmt::println(stderr, __VA_ARGS__); }
 
 void interpret(std::string text, std::array<char, 30000>& tape, int& ptr) {
     for (int i = 0; i < text.length(); i++) {
@@ -38,26 +31,22 @@ void interpret(std::string text, std::array<char, 30000>& tape, int& ptr) {
                     }
 
                     if (k == text.length() - 1) {
-                        std::string error = fmt::format("In file: Loop missing ']'\nAt: {}", i+1);
-                        FAIL(error.c_str());
+                        FAIL("In file: Loop missing ']'\nAt: {}", i+1);
                     }
                 }
 
                 while (tape[ptr] != 0)
                     interpret(loop, tape, ptr);
             } break;
-            case ']': {
-                std::string error = fmt::format("In file: Rogue ']'\nAt: {}", i+1);
-                FAIL(error.c_str());
-            } break;
+            case ']':
+                FAIL("In file: Rogue ']'\nAt: {}", i+1);
+                break;
             case '>':
                 ptr++;
                 break;
             case '<':
-                if (ptr == 0) {
-                    std::string error = fmt::format("In file: Trying to decrement pointer while it's at 0\nAt: {}", i+1);
-                    FAIL(error.c_str());
-                }
+                if (ptr == 0)
+                    FAIL("In file: Trying to decrement pointer while it's at 0\nAt: {}", i+1);
                 ptr--;
                 break;
             case '+':

@@ -113,6 +113,8 @@ int main() {
                 ptr++;
                 break;
             case '<':
+                if (ptr == 0)
+                    FAIL("In file: Trying to decrement pointer while it's at 0\nAt: {}", i+1);
                 os << "    _Pointer--;\n";
                 ptr--;
                 break;

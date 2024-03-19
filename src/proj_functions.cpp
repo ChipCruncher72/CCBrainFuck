@@ -69,13 +69,26 @@ void interpret(std::string text, std::array<char, 30000>& tape, int& ptr) {
     }
 }
 
-std::string cpp_str(std::string text) {
+std::string operator*(std::string self, int times) {
+    std::stringstream ss;
+
+    for (int i = 0; i < times; i++)
+        ss << self;
+
+    return ss.str();
+}
+
+std::string operator""_s(const char *str, size_t) {
+    return str;
+}
+
+std::string cpp_str(std::string text, int spaces = 2) {
     std::stringstream ss;
 
     for (int i = 0; i < text.length(); i++) {
         switch (text[i]) {
             case '[': {
-                ss << "    while (_Tape[_Pointer] != 0) {\n";
+                ss << "    "_s * spaces << "while (_Tape[_Pointer] != 0) {\n";
 
                 int j = 0;
                 std::string loop;
@@ -98,30 +111,30 @@ std::string cpp_str(std::string text) {
                     }
                 }
 
-                ss << cpp_str(loop);
+                ss << cpp_str(loop, spaces+1);
 
-                ss << "    }\n";
+                ss << "    "_s * spaces << "}\n";
             } break;
             case ']':
                 FAIL("In file: Rogue ']'\nAt: {}", i+1);
                 break;
             case '>':
-                ss << "    _Pointer++;\n";
+                ss << "    "_s * spaces << "_Pointer++;\n";
                 break;
             case '<':
-                ss << "    _Pointer--;\n";
+                ss << "    "_s * spaces << "_Pointer--;\n";
                 break;
             case '+':
-                ss << "    _Tape[_Pointer]++;\n";
+                ss << "    "_s * spaces << "_Tape[_Pointer]++;\n";
                 break;
             case '-':
-                ss << "    _Tape[_Pointer]--;\n";
+                ss << "    "_s * spaces << "_Tape[_Pointer]--;\n";
                 break;
             case '.':
-                ss << "    std::cout << _Tape[_Pointer];\n";
+                ss << "    "_s * spaces << "std::cout << _Tape[_Pointer];\n";
                 break;
             case ',':
-                ss << "    _Tape[_Pointer] = std::getchar();\n";
+                ss << "    "_s * spaces << "_Tape[_Pointer] = std::getchar();\n";
                 break;
             default:
                 break;

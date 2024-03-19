@@ -75,7 +75,7 @@ std::string cpp_str(std::string text) {
     for (int i = 0; i < text.length(); i++) {
         switch (text[i]) {
             case '[': {
-                ss << "while (_Tape[_Pointer] != 0) {\n";
+                ss << "    while (_Tape[_Pointer] != 0) {\n";
 
                 int j = 0;
                 std::string loop;
@@ -100,7 +100,7 @@ std::string cpp_str(std::string text) {
 
                 ss << cpp_str(loop);
 
-                ss << "}\n";
+                ss << "    }\n";
             } break;
             case ']':
                 FAIL("In file: Rogue ']'\nAt: {}", i+1);
@@ -143,7 +143,7 @@ int main() {
     for (int i = 0; i < text.length(); i++) {
         switch (text[i]) {
             case '[': {
-                os << "while (_Tape[_Pointer] != 0) {\n";
+                os << "    while (_Tape[_Pointer] != 0) {\n";
 
                 int j = 0;
                 std::string loop;
@@ -168,7 +168,7 @@ int main() {
 
                 os << cpp_str(loop);
 
-                os << "}\n";
+                os << "    }\n";
             } break;
             case ']':
                 FAIL("In file: Rogue ']'\nAt: {}", i+1);

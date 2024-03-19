@@ -36,9 +36,7 @@ int main(int argc, char *argv[]) {
         entire_bf_file += line + "\n";
     }
 
-    std::array<char, 30000> tape;
-    int ptr = 0;
-    bf_to_cpp(entire_bf_file, cpp_file, tape, ptr);
+    bf_to_cpp(entire_bf_file, cpp_file);
 
     bf_file.close();
     cpp_file.close();

@@ -58,4 +58,3 @@ Make sure you put the [{fmt} library](https://github.com/fmtlib/fmt) in libs/fmt
 The interpreter isn't *quite* finished yet; there is still some stuff in the works such as:
 - Better onboarding
 - QOL improvements (compiler flags such as -h, -v, --repl, -f, ...)
-- Transpiler

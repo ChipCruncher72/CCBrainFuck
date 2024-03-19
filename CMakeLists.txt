@@ -29,3 +29,14 @@ set_property(TARGET "ccbf-repl" PROPERTY CXX_STANDARD 26)
 target_compile_options("ccbf-repl" PRIVATE "-Wall" "-Werror" "-pedantic-errors")
 
 target_link_libraries("ccbf-repl" PRIVATE fmt::fmt)
+
+project("ccbf-tp")
+
+add_executable("ccbf-tp" "src/main-tp.cpp")
+
+set_property(TARGET "ccbf-tp" PROPERTY CXX_EXTENSIONS ON)
+set_property(TARGET "ccbf-tp" PROPERTY CXX_STANDARD 26)
+
+target_compile_options("ccbf-tp" PRIVATE "-Wall" "-Werror" "-pedantic-errors")
+
+target_link_libraries("ccbf-tp" PRIVATE fmt::fmt)

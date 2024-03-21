@@ -145,9 +145,12 @@ std::string cpp_str(std::string text, int spaces = 2) {
 }
 
 void bf_to_cpp(std::string text, std::ofstream& os) {
-    os << R"(#include <iostream>
-#include <cstdio>
-#include <array>
+    if (text.contains("."))
+        os << "#include <iostream>\n";
+    if (text.contains(","))
+        os << "#include <cstdio>\n";
+
+    os << R"(#include <array>
 
 int main() {
     std::array<char, 30000> _Tape;

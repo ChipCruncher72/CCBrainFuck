@@ -1,6 +1,8 @@
 #include <array>
 #include <fmt/core.h>
+#include <ios>
 #include <iostream>
+#include <limits>
 #include <string>
 #include "proj_functions.cpp"
 
@@ -21,7 +23,7 @@ int main() {
 
     while (inp != "~EOF") {
         interpret(inp, tape, pointer);
-        std::cin.ignore();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         fmt::println("");
         fmt::print(">>> ");
         std::getline(std::cin, inp);

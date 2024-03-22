@@ -9,8 +9,8 @@
 #define CCBF_MINOR 5
 #define CCBF_PATCH 0
 #define LAMBDA(...) [=](__VA_ARGS__)
-#define FAIL(...) { fmt::println(stderr, __VA_ARGS__); std::exit(1); }
-#define WARN(...) { fmt::println(stderr, __VA_ARGS__); }
+#define FAIL(...) { fmt::println(stderr, "FATAL: " __VA_ARGS__); std::exit(1); }
+#define WARN(...) { fmt::println(stderr, "WARNING: " __VA_ARGS__); }
 
 void interpret(std::string text, std::array<char, 30000>& tape, int& ptr) {
     for (int i = 0; i < text.length(); i++) {

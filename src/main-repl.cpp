@@ -7,6 +7,8 @@
 #include "proj_functions.cpp"
 
 int main() {
+    FAIL("While the REPL does work, It's being blocked for the time being because of io issues.\nSee issue #3");
+
     fmt::println("Brainfuck REPL v{}.{}.{} by ChipCruncher72 (https://www.github.com/ChipCruncher72)",
         CCBF_MAJOR,
         CCBF_MINOR,

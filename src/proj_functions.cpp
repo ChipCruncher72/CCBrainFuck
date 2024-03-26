@@ -2,7 +2,6 @@
 #include <array>
 #include <cstdio>
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include <string>
 #define CCBF_MAJOR 0
@@ -61,7 +60,7 @@ void interpret(std::string text, std::array<char, 30000>& tape, int& ptr) {
                 fmt::print("{}", tape[ptr]);
                 break;
             case ',': {
-                std::cin >> tape[ptr];
+                tape[ptr] = std::getchar();
             } break;
             default:
                 break;
@@ -134,7 +133,7 @@ std::string cpp_str(std::string text, int spaces = 2) {
                 ss << "    "_s * spaces << "std::cout << _Tape[_Pointer];\n";
                 break;
             case ',':
-                ss << "    "_s * spaces << "std::cin >> _Tape[_Pointer];\n";
+                ss << "    "_s * spaces << "_Tape[_Pointer] = std::getchar();\n";
                 break;
             default:
                 break;
@@ -145,8 +144,10 @@ std::string cpp_str(std::string text, int spaces = 2) {
 }
 
 void bf_to_cpp(std::string text, std::ofstream& os) {
-    if (text.contains(".") || text.contains(","))
+    if (text.contains("."))
         os << "#include <iostream>\n";
+    if (text.contains(","))
+        os << "#include <cstdio>\n";
 
     os << R"(#include <array>
 
@@ -203,7 +204,7 @@ int main() {
                 os << "    std::cout << _Tape[_Pointer];\n";
                 break;
             case ',':
-                os << "    std::cin >> _Tape[_Pointer];\n";
+                os << "    _Tape[_Pointer] = std::getchar();\n";
                 break;
             default:
                 break;

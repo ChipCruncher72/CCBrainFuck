@@ -7,7 +7,6 @@
 #define CCBF_MAJOR 0
 #define CCBF_MINOR 6
 #define CCBF_PATCH 0
-#define LAMBDA(...) [=](__VA_ARGS__)
 #define FAIL(...) { fmt::println(stderr, "FATAL: " __VA_ARGS__); std::exit(1); }
 #define WARN(...) { fmt::println(stderr, "WARNING: " __VA_ARGS__); }
 
